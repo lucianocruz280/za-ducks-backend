@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  title       String   @db.VarChar(200)
+  brand       String   @db.VarChar(120)
+  description String   @db.Text
+  price       Int      // en centavos (clean code: sin floats)
+  currency    String   @default("MXN")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([title])
+  @@index([brand])
+  @@index([description])
+}
