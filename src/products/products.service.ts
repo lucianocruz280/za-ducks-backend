@@ -66,4 +66,24 @@ export class ProductsService {
       originalPrice: p.price, discountApplied: true,
     }
   }
+
+  async findAll(skip = 0, take = 20): Promise<SearchResult> {
+    if (skip < 0) skip = 0;
+    if (take < 1) take = 1;
+    if (take > 100) take = 100;
+
+    const [list, total] = await this.repo.findAndCount({
+      order: { createdAt: 'DESC' },
+      skip,
+      take,
+    });
+
+    // NO aplica descuento aquí
+    return {
+      items: list.map((p) => this.map(p, false)),
+      palindrome: false,
+      total,
+    };
+  }
+
 }
