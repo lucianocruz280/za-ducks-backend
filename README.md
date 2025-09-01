@@ -49,33 +49,10 @@ GET /api/products
 curl http://localhost:3005/api/products
 ```
 ```bash
-GET /api/search?q=adi&skip=0&take=12
+GET /api/products/search?q=adi&skip=0&take=12
 ```
 ```bash
-curl "http://localhost:3005/api/search?q=adi&skip=0&take=12"
-```
-```bash
-POST /api/products
-Content-Type: application/json
-
-{
-  "title": "Radar",
-  "brand": "ZA",
-  "description": "Palíndromo tecnológico",
-  "price": 180000,
-  "currency": "MXN"
-}
-```
-```bash
-curl -X POST http://localhost:3005/api/products \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "Radar",
-    "brand": "ZA",
-    "description": "Palíndromo tecnológico",
-    "price": 180000,
-    "currency": "MXN"
-  }'
+curl "http://localhost:3005/api/products/search?q=adi&skip=0&take=12"
 ```
 ## Datos de prueba (palíndromos)
 Conéctate a Postgres del contenedor e inserta productos.
