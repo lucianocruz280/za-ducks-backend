@@ -13,6 +13,9 @@ cd za-ducks-backend
 npm install
 npm run start:dev
 ```
+## Ver tipado en Swagger
+<a href="http://localhost:3005/docs">Abrir Swagger local</a>
+
 ## Variables de entorno
 Crea un archivo .env en la raíz con este contenido.
 ```bash
